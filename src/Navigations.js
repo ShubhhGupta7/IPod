@@ -2,11 +2,11 @@ import React from 'react';
 
 const Navigations = (props) => {
     const {
-        onReturn,
+        onOkay,
         onForward,
         onBackward,
         onPlay,
-        onMenu
+        onHome,
     } = props
 
     return (
@@ -18,7 +18,7 @@ const Navigations = (props) => {
                 className = "nav-actions"
                 style = {styles.menu}
                 onClick = {() => {
-                    onMenu()
+                    onHome()
                 }}
                 >Menu</div>
             <img 
@@ -57,7 +57,7 @@ const Navigations = (props) => {
                 style = {styles.home}
                 
                 onClick = {() => {
-                    onReturn()
+                    onOkay()
                 }}
                 ></div>
         </div>
