@@ -25,6 +25,8 @@ body {
   border: 2px solid black;
   box-shadow: -.5px -.5px 3px 1px white inset;
   border-radius: 1rem;
+
+  overflow: hidden;
 }
 
 .nav-actions {

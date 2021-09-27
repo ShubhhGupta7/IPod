@@ -4,13 +4,13 @@ class Games extends React.Component{
     
     render(){
         return(
-            <div style={styles.settings} >
+            <div style={styles.gameContainer} >
                  <div style={styles.titlebar}>
-                        <p style={{fontWeight:'bold'}}>iPod</p>
+                        <p style={{fontWeight:'bold'}}>Games</p>
                         <img style={styles.battery} src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
                     </div>
                 <div style={{width : '100%' , height : '90%'}}>
-                    <img style={styles.image} src="https://media2.giphy.com/media/uYe2emzPgDfj2/giphy.webp?cid=ecf05e47fa455dac230de80fff0206077175b008801bc689&rid=giphy.webp" />
+                    <img style={styles.image} src="https://as1.ftcdn.net/v2/jpg/02/51/16/08/1000_F_251160877_NIERI1s4KXDf9uIWogRNuz7GrWTH9PpN.jpg" />
                 </div>
                 
             </div>
@@ -20,7 +20,7 @@ class Games extends React.Component{
 }
 
 const styles = {
-    settings : {
+    gameContainer : {
         width : '100%',
         height : '100%',
         display : 'flex',
@@ -42,12 +42,14 @@ const styles = {
         borderTopRightRadius: '1rem',
         boxSizing: 'border-box',
         padding: '3px',
-        backgroundImage: 'linear-gradient(white, grey)',
+        backgroundColor: 'lightblue',
+        boxShadow: '0px 0px 10px 3px grey inset',
         width: 'inherit',
         height: 30,
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        zIndex: 1
     }
 }
 

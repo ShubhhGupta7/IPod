@@ -49,7 +49,7 @@ const styles = {
         //border:'1px solid black',
         height : '100%',
         width : '50%',
-        backgroundImage : 'url("https://i.pinimg.com/originals/b5/ca/9a/b5ca9a6c64b6a5c445dc993dd6294d10.jpg")',
+        backgroundImage : 'url("https://img.freepik.com/free-vector/colorful-palm-silhouettes-background_23-2148541792.jpg?size=626&ext=jpg")',
         backgroundSize : 'cover',
         backgroundPosition : 'center',
         borderRadius : '0 12px 12px 0'
@@ -61,14 +61,15 @@ const styles = {
 
     titlebar: {
         borderTopLeftRadius: '1rem',
-        borderTopRightRadius: '1rem',
         boxSizing: 'border-box',
         padding: '3px',
-        backgroundImage: 'linear-gradient(white, grey)',
+        backgroundColor: 'lightblue',
+        boxShadow: '0px 0px 10px 3px grey inset',
         height: 30,
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        zIndex: 1
     }
 }
 

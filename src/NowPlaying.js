@@ -1,5 +1,4 @@
 import React from 'react';
-import sound from './asserts/music/kinnasona.mp3';
 import ImageSource from './asserts/images/song_image.jfif';
 class MyMusic extends React.Component{
     
@@ -47,18 +46,16 @@ class MyMusic extends React.Component{
         return(
             <div style={styles.myMusicContainer}>
                 <div style={styles.titlebar}>
-                        <p style={{fontWeight:'bold'}}>iPod</p>
+                        <p style={{fontWeight:'bold'}}>Now Playing</p>
                         <img style={styles.battery} src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
                 </div>
 
-                <div style={styles.info}>
-                    <img style={styles.image} src= {ImageSource}></img>
-                    <div style={styles.subInfo}>
-                        <h4 style={{marginBottom:'0.5rem'}}>Kinna Sona</h4>
-                        <p style={{marginBottom:'0'}}>24 Aug, 2015</p>
-                        <p> Sunil Kamath</p>
-                    </div>
-                    
+                <div style={styles.songInfo}>
+                    <img 
+                        style= {styles.songImage}
+                        src = {ImageSource}
+                    />
+                    <p>Kinna Sona</p>
                 </div>
 
                 <div style={styles.statusBar}>
@@ -82,17 +79,13 @@ const styles = {
         display : 'flex',
         flexDirection : 'column',
     },
-    image : {
-        height : '75%',
-        width : '45%',
-        alignSelf : 'center'
-    },
-    info : {
-        height : '70%',
-        width : '100%',
-        display : 'flex',
-        flexDirection : 'row',
-        justifyContent : 'space-evenly'
+    songInfo: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontWeight: 'bold',
+        fontSize: '18px'
     },
     statusBar : {
         width : '100%',
@@ -115,7 +108,7 @@ const styles = {
     },
     fill : {
         height: '100%',
-        backgroundColor: 'royalblue',
+        backgroundColor: 'green',
     },
     currTime : {
         margin : '0',
@@ -135,14 +128,15 @@ const styles = {
         borderTopRightRadius: '1rem',
         boxSizing: 'border-box',
         padding: '3px',
-        backgroundImage: 'linear-gradient(white, grey)',
+        backgroundColor: 'lightblue',
+        boxShadow: '0px 0px 10px 3px grey inset',
         width: 'inherit',
         height: 30,
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        zIndex: 1
     }
 }
-
 
 export default MyMusic;

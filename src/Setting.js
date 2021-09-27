@@ -7,11 +7,11 @@ class Settings extends React.Component{
             <div style={styles.settings} >
 
                 <div style={styles.titlebar}>
-                        <p style={{fontWeight:'bold'}}>iPod</p>
+                        <p style={{fontWeight:'bold'}}>Settings</p>
                         <img style={styles.battery} src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
                 </div>
                 <div style={{width : '100%' , height : '90%',display:'flex' , flexDirection : 'row' , justifyContent: 'center'}}>
-                    <img style={styles.image} src="https://image.flaticon.com/icons/svg/929/929435.svg" />
+                    <img style={styles.image} src="https://cdn-icons-png.flaticon.com/512/992/992668.png" />
                 </div>
             </div>
         );
@@ -42,12 +42,14 @@ const styles = {
         borderTopRightRadius: '1rem',
         boxSizing: 'border-box',
         padding: '3px',
-        backgroundImage: 'linear-gradient(white, grey)',
+        backgroundColor: 'lightblue',
+        boxShadow: '0px 0px 10px 3px grey inset',
         width: 'inherit',
         height: 30,
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        zIndex: 1
     }
 }
 

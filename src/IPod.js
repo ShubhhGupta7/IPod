@@ -3,6 +3,13 @@ import Screen from './Screen';
 import ZingTouch from 'zingtouch';
 import KinnaSona from './asserts/music/kinnasona.mp3';
 
+/*
+Name : Shubh Gupta
+Project: Ipod in React
+*/ 
+
+
+
 class IPod extends React.Component{
 
     constructor(){
@@ -11,34 +18,32 @@ class IPod extends React.Component{
             activeItem : 'NowPlaying',
             activePage : 'Home',
             enter : 0,
-            play : true
+            play : true,
+            vol: 1.0
         }
     }
 
     rotateWheel = () => {
-
         var containerElement = document.getElementById('inner-container');
         var activeRegion = new ZingTouch.Region(containerElement);
-        // var childElement = document.getElementById('inner-container');
         var change = 0;
         var self = this;
         self.state.enter = self.state.enter + 1;
         
         if(self.state.enter < 2){
-            activeRegion.bind(containerElement, 'rotate', function(event){
-                //Perform Operations
-                
+            activeRegion.bind(containerElement, 'rotate', function(event){            
                 var newAngle = event.detail.distanceFromLast;
-                console.log(newAngle);
         
                 if(newAngle < 0){
-                    console.log(change);
                     change++;
                     if(change === 15){
-                        console.log("change state");
                         change = 0;
                         if(self.state.activePage === 'Home'){
-                            if(self.state.activeItem === 'NowPlaying'){
+                            if(self.state.activeItem === 'Settings'){
+                                self.setState({
+                                    activeItem : "NowPlaying"
+                                })
+                            } else if(self.state.activeItem === 'NowPlaying'){
                                 self.setState({
                                     activeItem : "Music"
                                 })
@@ -50,28 +55,22 @@ class IPod extends React.Component{
                                 self.setState({
                                     activeItem : "Settings"
                                 })
-                            }else if(self.state.activeItem === 'Settings'){
-                                self.setState({
-                                    activeItem : "NowPlaying"
-                                })
                             }
                         }else if(self.state.activePage === 'Music'){
-                            if(self.state.activeItem === 'MyMusic'){
+                            if(self.state.activeItem === 'NowPlaying'){
                                 self.setState({
-                                    activeItem : "Artists"
+                                    activeItem : "Playlist"
                                 })
-                            }else if(self.state.activeItem === 'Artists'){
+                            }else if(self.state.activeItem === 'Playlist'){
                                 self.setState({
-                                    activeItem : "MyMusic"
+                                    activeItem : "NowPlaying"
                                 })
                             }
                         }
                     }
                 }else{
-                    console.log(change);
                     change++;
                     if(change === 15){
-                        console.log("change state");
                         change = 0;
                         if(self.state.activePage === 'Home'){
                             if(self.state.activeItem === 'NowPlaying'){
@@ -92,36 +91,32 @@ class IPod extends React.Component{
                                 })
                             }
                         }else if(self.state.activePage === 'Music'){
-                            if(self.state.activeItem === 'MyMusic'){
+                            if(self.state.activeItem === 'NowPlaying'){
                                 self.setState({
-                                    activeItem : "Artists"
+                                    activeItem : "Playlist"
                                 })
-                            }else if(self.state.activeItem === 'Artists'){
+                            }else if(self.state.activeItem === 'Playlist'){
                                 self.setState({
-                                    activeItem : "MyMusic"
+                                    activeItem : "NowPlaying"
                                 })
                             }
                         }
                     }
                 }
                 });
-        }else{
-            console.log("Not allowed to enter")
         }
-        
     }
 
-    changePage = () => {
-
+    choose = () => {
         if(this.state.activeItem === 'Music'){
             this.setState({
-                activeItem : 'MyMusic',
+                activeItem : 'NowPlaying',
                 activePage : this.state.activeItem
             })
         }else if(this.state.activeItem === 'NowPlaying'){
             this.setState({
                 activeItem : 'NowPlaying',
-                activePage : 'MyMusic'
+                activePage : 'NowPlaying'
             })
         }else{
             this.setState({
@@ -131,9 +126,9 @@ class IPod extends React.Component{
         }
     }
 
-    changePageToHomeScreen = () => {
+    backOrMenu = () => {
 
-        if(this.state.activeItem === 'MyMusic' || this.state.activeItem === 'Artists'){
+        if(this.state.activeItem === 'NowPlaying' || this.state.activeItem === 'Playlist'){
             this.setState({
                 activeItem : 'Music',
                 activePage : 'Home'
@@ -148,19 +143,46 @@ class IPod extends React.Component{
     }
 
     toggle = () =>{
-        if(this.state.activePage === 'MyMusic'){
-            if(this.state.play === true){
-                this.state.audio.pause();
-                this.setState({
-                    play : false
-                })
-            }else{
-                this.state.audio.play();
-                this.setState({
-                    play : true
-                })
+        if(this.state.play === true){
+            this.state.audio.pause();
+            this.setState({
+                play : false
+            })
+        }else{
+            this.state.audio.play();
+            this.setState({
+                play : true
+            })
+        }
+    }
+
+    increaseVolume = () => {
+        if(this.state.play === true){
+            let volume = this.state.vol;
+            volume += 0.2;
+            if(volume >= 1.0) {
+                return;
             }
-            console.log("toggled")
+    
+            this.state.audio.volume = volume;
+            this.setState({
+                vol : volume
+            })
+        }
+    }
+
+    decreaseVolume = () => {
+        if(this.state.play === true){
+            let volume = this.state.vol;
+            volume -= 0.1;
+            if(volume <= 0.0) {
+                return;
+            }
+
+            this.state.audio.volume = volume;
+            this.setState({
+                vol : volume
+            })
         }
     }
 
@@ -170,9 +192,7 @@ class IPod extends React.Component{
         this.setState({
             audio : audio,
         })
-        console.log(this.state)
     }
-
 
     render() {  
         return(
@@ -195,7 +215,7 @@ class IPod extends React.Component{
                         className = "nav-actions"
                         style = {styles.menu}
                         onClick = {
-                            this.changePageToHomeScreen
+                            this.backOrMenu
                         }
                         >Menu</div>
                     <i
@@ -209,19 +229,19 @@ class IPod extends React.Component{
                         style = {styles.forw}
                         className = "nav-actions fas fa-fast-forward"
                     
-                        onClick = {this.changePage}
+                        onClick = {this.increaseVolume}
                     ></i> 
                     <i 
                         style = {styles.back}
                         className = "nav-actions fas fa-fast-backward"
                     
-                        onClick = {this.changePage}
+                        onClick = {this.decreaseVolume}
                     ></i>
                     <div className = "backBtn"
                         className = "nav-actions"
                         style = {styles.home}
                         
-                        onClick={this.changePage}
+                        onClick={this.choose}
                         ></div>
                 </div>
             </div>
