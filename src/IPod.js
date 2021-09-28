@@ -8,8 +8,6 @@ Name : Shubh Gupta
 Project: Ipod in React
 */ 
 
-
-
 class IPod extends React.Component{
 
     constructor(){
@@ -23,6 +21,7 @@ class IPod extends React.Component{
         }
     }
 
+    // this function controls navigation of the ipod using zingtouch
     rotateWheel = () => {
         var containerElement = document.getElementById('inner-container');
         var activeRegion = new ZingTouch.Region(containerElement);
@@ -126,6 +125,7 @@ class IPod extends React.Component{
         }
     }
 
+    // button for get back to previous page or home page
     backOrMenu = () => {
 
         if(this.state.activeItem === 'NowPlaying' || this.state.activeItem === 'Playlist'){
@@ -142,6 +142,7 @@ class IPod extends React.Component{
         
     }
 
+    // button to play and pause the song.
     toggle = () =>{
         if(this.state.play === true){
             this.state.audio.pause();
@@ -156,6 +157,7 @@ class IPod extends React.Component{
         }
     }
 
+    // function to increase the volume of song at any page.
     increaseVolume = () => {
         if(this.state.play === true){
             let volume = this.state.vol;
@@ -171,6 +173,7 @@ class IPod extends React.Component{
         }
     }
 
+    // function to decrease the volume of song at any page
     decreaseVolume = () => {
         if(this.state.play === true){
             let volume = this.state.vol;
@@ -186,13 +189,14 @@ class IPod extends React.Component{
         }
     }
 
+    // mounting audio as component get mount. 
     componentDidMount(){
         let audio = document.getElementsByClassName("audio-element")[0];
-        console.log(audio)
         this.setState({
             audio : audio,
         })
     }
+    
 
     render() {  
         return(

@@ -36,14 +36,12 @@ const styles = {
         flexDirecton : 'row'
     },
     menuList : {
-        //border:'1px solid black',
         height : '100%',
         width : '50%',
         boxShadow: '10px 0px 15px -5px rgba(0,0,0,0.75)',
         zIndex : '1'
     },
     imageContainer : {
-        //border:'1px solid black',
         height : '100%',
         width : '50%',
         backgroundImage : 'url("https://img.freepik.com/free-vector/colorful-palm-silhouettes-background_23-2148541792.jpg?size=626&ext=jpg")',

@@ -9,18 +9,14 @@ class MyMusic extends React.Component{
         }
     }
 
-   
     componentDidMount(){
         let self = this;
-        self.props.audio.play();
-
-       
+        self.props.audio.play(); 
             self.props.audio.addEventListener("timeupdate",function(){
                 if(self.state.isMounted){
                     var pos = self.props.audio.currentTime/self.props.audio.duration;
                     self.updateTime();
                     let fill = document.getElementById("fill");
-                    console.log(fill);
                     if(fill !== null){
                         fill.style.width = pos*100 + "%";
                     }
@@ -29,9 +25,7 @@ class MyMusic extends React.Component{
         
     }
 
-
-    updateTime = () =>{
-       
+    updateTime = () =>{  
         this.setState({
             audio : this.props.audio
         })
@@ -42,7 +36,7 @@ class MyMusic extends React.Component{
     }
 
     render(){
-         let audio = this.props.audio;
+        let audio = this.props.audio;
         return(
             <div style={styles.myMusicContainer}>
                 <div style={styles.titlebar}>
