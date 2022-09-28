@@ -68,3 +68,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+This is a ipod developed in reactjs using zingtouch library for navigation like a ipod.
+
+
+
+![Screenshot (122)](https://user-images.githubusercontent.com/86280855/192754898-7f81f674-0081-474b-a2a1-51a4fa101eaf.png)
+
+![Screenshot (123)](https://user-images.githubusercontent.com/86280855/192754908-26cf5805-b918-44dc-98eb-37cca2e97f04.png)
+
+
+![Screenshot (124)](https://user-images.githubusercontent.com/86280855/192754916-6c83597b-6c0a-4299-9df1-dc5cbf6e29a0.png)
+
+
+![Screenshot (125)](https://user-images.githubusercontent.com/86280855/192754936-d4ded798-6caa-40b0-a4c9-59a07041a6d6.png)
+
+
+![Screenshot (126)](https://user-images.githubusercontent.com/86280855/192754942-954efd89-3115-4a17-aeaa-36b9fbcc4a5f.png)
